@@ -1,11 +1,11 @@
 spring:
   application:
-    name: gateway-server
+    name: gateway_server
 
 server:
   port: 8090
 
 eureka:
   client:
-    service-url:
+    serviceUrl:
       defaultZone: http://eureka_server:8761/eureka
