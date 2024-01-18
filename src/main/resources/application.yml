@@ -26,3 +26,7 @@ spring:
           uri: lb://item-service-s
           predicates:
             - Path=/gods/**
+
+logging:
+  level:
+    root: debug
