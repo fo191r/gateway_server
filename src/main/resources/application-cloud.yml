@@ -1,0 +1,13 @@
+#SE DEFINEN LAS RUTAS A LAS CUALES SE VAN A ENRUTAR LAS PETICIONES
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service-s
+          predicates:
+            - Path=/store/**
+        - id: item-service
+          uri: lb://item-service-s
+          predicates:
+            - Path=/gods/**
