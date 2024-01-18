@@ -21,6 +21,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+
+    // Dependencias para obtener recursos de kubernetes
+    implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-fabric8'
+    implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-fabric8-loadbalancer'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 }

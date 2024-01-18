@@ -1,6 +1,21 @@
-#SE DEFINEN LAS RUTAS A LAS CUALES SE VAN A ENRUTAR LAS PETICIONES
 spring:
+  # Se añaden las ocnfiguraciones de kubernetes
   cloud:
+    kubernetes:
+      discovery:
+        enabled: true
+        all-namespaces: true
+      loadbalancer:
+        mode: service
+      config:
+        enabled: true
+      reload:
+        enabled: true
+        monitoring-config-maps: true
+        strategy: refresh
+        mode: event
+
+    #Se añade la resolucion de paths basados en nombres de servicios
     gateway:
       routes:
         - id: product-service
