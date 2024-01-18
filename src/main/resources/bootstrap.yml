@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: gateway-server
-  profiles:
-    active: "${ACTIVE_PROFILE}"
-
-server:
-  port: 8090
