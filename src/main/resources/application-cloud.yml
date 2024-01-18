@@ -11,3 +11,6 @@ spring:
           uri: lb://item-service-s
           predicates:
             - Path=/gods/**
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
