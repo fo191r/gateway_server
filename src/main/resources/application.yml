@@ -32,7 +32,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8080/realms/udemy-realm-cloud
+          issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-realm-cloud
           jwk-set-uri: http://keycloak:8080/realms/udemy-realm-cloud/protocol/openid-connect/certs
 
 
