@@ -25,7 +25,7 @@ spring:
         - id: item-service
           uri: lb://item-service-s
           predicates:
-            - Path=/gods/**
+            - Path=/goods/**
 
 logging:
   level:
