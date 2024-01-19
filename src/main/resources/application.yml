@@ -38,7 +38,8 @@ spring:
 
 logging:
   level:
-    org.keycloak: DEBUG # Logs relacionados a keycloak
+    org.keycloak: debug # Logs relacionados a keycloak
+    root: debug
 
 server:
   port: 8090
