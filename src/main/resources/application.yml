@@ -22,19 +22,28 @@ spring:
           uri: lb://product-service-s
           predicates:
             - Path=/store/**
+          filters:
+            - name: JwtAuthentication
+              args:
+                roles: "admin_client_role"
         - id: item-service
           uri: lb://item-service-s
           predicates:
             - Path=/goods/**
+          filters:
+            - name: JwtAuthentication
+              args:
+                roles: "admin_client_role,user_client_role"
 
   # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
   security:
     oauth2:
       resourceserver:
         jwt:
+          #Este es el nombre del issuer de los jwt (debe ser el mismo) que esta definido en la pagina https://keycloak.localhost.nip.io/realms/udemy-realm-cloud/.well-known/openid-configuration/ en la propiedad issuer
           issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-realm-cloud
+          #Este es el endpoint para validar el JWT este si debe de usar el service de kubernetes para que se pueda consumir.
           jwk-set-uri: http://keycloak:8080/realms/udemy-realm-cloud/protocol/openid-connect/certs
-
 
 logging:
   level:
