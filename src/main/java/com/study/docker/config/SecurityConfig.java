@@ -26,8 +26,8 @@ public class SecurityConfig {
                 // Se indica que todos los request deben estar autenticados (lo habilito solo para seguir el ejemplo)
                 .authorizeHttpRequests(http -> http.anyRequest().authenticated())
 
-                // Se indica que se configure la conexion con el servidor de recursos para realizar la validacion de tokens
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+                // Se indica que se configure la conexion con el servidor de recursos para realizar la validacion de tokens, no se añade informacion adicional:
+                .oauth2ResourceServer(oauth -> oauth.jwt(jwt -> {}))
 
                 // Se indica que no se almacenara informacion de las sesiones (usado para servidores de autenticacion y autorizacion)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
