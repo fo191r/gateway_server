@@ -17,14 +17,10 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 // Indicamos los paths que deben de tener autenticacion y el rol asociado
-//                .authorizeHttpRequests(http -> http
-//                        .requestMatchers("/store/**").hasAuthority("admin_client_role")
-//                        .requestMatchers("/goods/**").hasAuthority("user_client_role")
-//                        .anyRequest().authenticated())
-
-                // Se indica que todos los request deben estar autenticados y los que no necesitan autenticacion
                 .authorizeHttpRequests(http -> http
                         .requestMatchers("/app/sign").permitAll()
+                        .requestMatchers("/store/**").hasAuthority("admin_client_role")
+                        .requestMatchers("/goods/**").hasAuthority("user_client_role")
                         .anyRequest().authenticated())
 
                 // Se indica que se configure la conexion con el servidor de recursos para realizar la validacion de tokens, no se añade informacion adicional:
