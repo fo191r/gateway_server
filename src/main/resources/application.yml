@@ -40,13 +40,13 @@ spring:
           filters:
             - StripPrefix=0
 
-  # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-store-realm
-          jwk-set-uri: http://keycloak:8080/realms/udemy-store-realm/protocol/openid-connect/certs
+#  # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-store-realm
+#          jwk-set-uri: http://keycloak:8080/realms/udemy-store-realm/protocol/openid-connect/certs
 
 logging:
   level:
