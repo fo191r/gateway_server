@@ -20,11 +20,6 @@ spring:
 
     #Se añade la resolucion de paths basados en nombres de servicios registrados en kubernetes
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
       routes:
         - id: product-service
           uri: lb://product-service-s
