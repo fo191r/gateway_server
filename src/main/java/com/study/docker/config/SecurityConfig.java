@@ -16,7 +16,7 @@ public class SecurityConfig {
     SecurityFilterChain securityFilter(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-                // Indicamos los paths que deben de estar autenticadas
+                // Indicamos los paths que deben de estar autenticadas y cuales no necesitan autenticacion jwt
                 .authorizeHttpRequests(http -> http
                         .requestMatchers("/app/sign").permitAll()
                         .anyRequest().authenticated())
