@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: gateway-server
+
   # Se añaden las configuraciones de kubernetes
   cloud:
     kubernetes:
@@ -26,6 +29,10 @@ spring:
           uri: lb://item-service-s
           predicates:
             - Path=/goods/**
+        - id: authorization-server
+          uri: lb://authorization-server-s
+          predicates:
+            - Path=/app/**
 
   # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
   security:
@@ -35,10 +42,9 @@ spring:
           issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-realm-cloud
           jwk-set-uri: http://keycloak:8080/realms/udemy-realm-cloud/protocol/openid-connect/certs
 
-
 logging:
   level:
-    org.keycloak: debug # Logs relacionados a keycloak
+    org.keycloak: debug
     root: debug
 
 server:
