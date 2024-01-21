@@ -22,31 +22,31 @@ spring:
     gateway:
       routes:
         - id: product-service
-          uri: lb://product-service-s
+          uri: http://product-service-s:7000
           predicates:
             - Path=/store/**
           filters:
             - StripPrefix=0
         - id: item-service
-          uri: lb://item-service-s
+          uri: http://item-service-s:7000
           predicates:
             - Path=/goods/**
           filters:
             - StripPrefix=0
         - id: authorization-server
-          uri: lb://authorization-server-s
+          uri: http://authorization-server-s:8050
           predicates:
             - Path=/app/**
           filters:
             - StripPrefix=0
 
-#  # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-store-realm
-#          jwk-set-uri: http://keycloak:8080/realms/udemy-store-realm/protocol/openid-connect/certs
+  # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak.localhost.nip.io/realms/udemy-store-realm
+          jwk-set-uri: http://keycloak:8080/realms/udemy-store-realm/protocol/openid-connect/certs
 
 logging:
   level:
