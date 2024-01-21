@@ -25,14 +25,20 @@ spring:
           uri: lb://product-service-s
           predicates:
             - Path=/store/**
+          filters:
+            - StripPrefix=0
         - id: item-service
           uri: lb://item-service-s
           predicates:
             - Path=/goods/**
+          filters:
+            - StripPrefix=0
         - id: authorization-server
           uri: lb://authorization-server-s
           predicates:
             - Path=/app/**
+          filters:
+            - StripPrefix=0
 
   # Se añade la configuracion de conexion hacia el servicio de autorizacion - keycloak
   security:
