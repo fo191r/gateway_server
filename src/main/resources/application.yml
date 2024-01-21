@@ -53,7 +53,7 @@ logging:
   level:
     org:
       springframework.springframework.security: debug
-#    root: debug
+    root: debug
 
 server:
   port: 8090
